@@ -1,0 +1,223 @@
+﻿\documentclass[11pt,a4paper]{article}
+
+% Paquets essencials
+\usepackage[utf8]{inputenc}
+% Load babel with both Catalan and English; default language is Catalan here
+\usepackage[english,catalan]{babel}
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{graphicx} % Afegit per a suport d'imatges
+
+% Tipografia moderna per a informÃ tica
+\usepackage[T1]{fontenc}
+\usepackage{sourcesanspro} % Font principal: Source Sans Pro
+\usepackage{sourcecodepro} % Font monospace per a codi
+\renewcommand{\familydefault}{\sfdefault} % Sans-serif per defecte
+
+% Definir colors (estil Deedy)
+\definecolor{primary}{HTML}{2b2b2b}
+\definecolor{headings}{HTML}{6A6A6A}
+\definecolor{subheadings}{HTML}{333333}
+
+% Format de seccions (estil Deedy)
+\titleformat{\section}{\color{headings}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule]
+\titleformat{\subsection}{\color{subheadings}\raggedright\large}{}{0em}{}
+
+% Configurar peu de pÃ gina
+\pagestyle{fancy}
+\fancyhf{} % Neteja headers i footers
+\fancyfoot[C]{\color{headings}\footnotesize \updatedLabel\ \today}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Eliminar indentaciÃ³ de parÃ grafs
+\setlength{\parindent}{0pt}
+
+% Definir comandes personalitzades (estil Deedy)
+\newcommand{\runsubsection}[1]{\color{subheadings}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase{#1}\normalfont}
+\newcommand{\descript}[1]{\color{subheadings}\raggedright\fontsize{11pt}{13pt}\selectfont{#1 \\}\normalfont}
+\newcommand{\location}[1]{\color{headings}\raggedright\fontsize{10pt}{12pt}\selectfont{#1\\}\normalfont}
+\newcommand{\sectionsep}{\vspace{8pt}}
+
+% Configurar hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=headings,
+    urlcolor=headings,
+    pdfborder={0 0 0}
+}
+
+% Definir entorn per llistes compactes
+\newenvironment{tightemize}{\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}{\end{itemize}\vspace{-\topsep}}
+
+\begin{document}
+
+% Load language-specific strings (Catalan by default). To change language,
+% replace strings_catalan.tex with strings_english.tex or create a new file.
+\input{strings_english.tex}
+% To use English strings, comment the line above and uncomment the line below:
+% \input{strings_english.tex}
+
+% CAPÃ‡ALERA (estil Deedy)
+\begin{center}
+    
+    {\Huge \color{primary} \textbf{\nameFull}} \\
+    \vspace{3pt}
+    {\Large \color{subheadings} \textsc{\degree}} \\
+    \vspace{6pt}
+    \color{headings}
+    % \faMapMarker \space \addressFull \\
+    % \vspace{2pt}
+    \faPhone \space \phone \space \textbullet \space
+    \vspace{2pt}
+    \faEnvelope \space \href{mailto:\email}{\email} \space \textbullet \space
+    \faLinkedin \space \href{\linkedinURL}{\linkedin} \\
+    % \vspace{2pt}
+    % \faGlobe \space \href{\websiteURL}{\websiteLabel} \\
+    % \faGithub \space \href{\githubURL}{\githubLabel}
+\end{center}
+
+\vspace{0pt} % Per si es vol canviar
+
+% ESTRUCTURA DE DOS COLUMNES (estil Deedy)
+\begin{multicols}{2}
+
+% COLUMNA ESQUERRA
+\section{\secExperience}
+
+\runsubsection{\additioAppTitle}
+\descript{\additioAppRole}
+\location{\additioAppLocation}
+\sectionsep
+\begin{tightemize}
+    \item \additioItemOne
+    \item \additioItemTwo
+    \item \additioItemThree
+    \item \additioItemFour
+    \item \additioItemFive
+    \item \additioItemSix
+\end{tightemize}
+
+% (Exemple d'entrada laboral comentada, suprimida per centralitzar textos)
+
+\section{\secEducation}
+
+\runsubsection{\univUdG}
+
+\descript{\mastersTitle}
+\location{\mastersLocation}
+\sectionsep
+\begin{tightemize}
+\item \mastersItemOne
+\item \mastersItemTwo
+\end{tightemize}
+\sectionsep
+
+\runsubsection{\univUdG}
+
+\descript{\bachelorTitle}
+\location{\bachelorLocation}
+\sectionsep
+\begin{tightemize}
+\item \bachelorItemOne
+\item \bachelorItemTwo
+\end{tightemize}
+\sectionsep
+
+\runsubsection{\schoolName}
+\descript{\schoolDesc}
+\location{\schoolLocation}
+\sectionsep
+\begin{tightemize}
+\item \schoolItemOne
+\item \schoolItemTwo
+\end{tightemize}
+
+\section{\secInterests}
+\descript{\interestsList}
+\sectionsep
+\partTimeNote
+
+% \section{Projectes Destacats}
+
+% \runsubsection{\href{\projectExampleURL}{\projectExampleName}}
+% \location{GitHub: \projectExampleRepo}
+% \projectExampleDesc
+% \sectionsep
+
+% \runsubsection{\href{\projectExampleURL}{\projectExampleName}}
+% \location{GitHub: \projectExampleRepo}
+% \projectExampleDesc
+% \sectionsep
+
+% NOVA COLUMNA
+\columnbreak
+
+% COLUMNA DRETA
+\section{\secProfile}
+\profileText
+
+\section{\secSkills}
+
+\runsubsection{\skillsLanguagesLabel}
+
+\skillsLanguagesList
+
+\sectionsep
+
+\runsubsection{\skillsToolsLabel}
+
+\skillsToolsList
+
+\section{\secLanguages}
+
+\runsubsection{\langCatalan}
+\langCatalanLevel
+\sectionsep
+
+\runsubsection{\langSpanish}
+\langSpanishLevel
+\sectionsep
+
+\runsubsection{\langEnglish}
+\langEnglishLevel
+\sectionsep
+
+\runsubsection{\langFrench}
+\langFrenchLevel
+
+\section{\secAwards}
+
+\runsubsection{\awardTitle}
+
+\descript{\awardDesc}
+\location{\awardLocation}
+
+\section{\secCerts}
+
+\runsubsection{\certOneTitle}
+\descript{\certOneDesc}
+\location{\certOneLocation}
+\sectionsep
+
+\runsubsection{\certTwoTitle}
+\descript{\certTwoDesc}
+\location{\certTwoLocation}
+
+% \reactCourseNote
+
+\end{multicols}
+
+\end{document}
+
+
+
+
+
