@@ -75,10 +75,10 @@
     \color{headings}
     % \faMapMarker \space \addressFull \\
     % \vspace{2pt}
-    \faPhone \space \phone \space \textbullet \space
+    \faPhone{} \space \phone{} \space \textbullet{} \space
     \vspace{2pt}
-    \faEnvelope \space \href{mailto:\email}{\email} \space \textbullet \space
-    \faLinkedin \space \href{\linkedinURL}{\linkedin} \\
+    \faEnvelope{} \space \href{mailto:\email}{\email} \space \textbullet{} \space
+    \faLinkedin{} \space \href{\linkedinURL}{\linkedin} \\
     % \vspace{2pt}
     % \faGlobe \space \href{\websiteURL}{\websiteLabel} \\
     % \faGithub \space \href{\githubURL}{\githubLabel}
@@ -90,128 +90,169 @@
 \begin{multicols}{2}
 
 % COLUMNA ESQUERRA
+\section{\secProfile}
+\profileText{}
+
 \section{\secExperience}
 
 \runsubsection{\additioAppTitle}
 \descript{\additioAppRole}
 \location{\additioAppLocation}
-\sectionsep
+\sectionsep{}
+
+\textbf{\additioTitleOne}
 \begin{tightemize}
-    \item \additioItemOne
-    \item \additioItemTwo
-    \item \additioItemThree
-    \item \additioItemFour
-    \item \additioItemFive
-    \item \additioItemSix
+    \item \additioItemOne{}
+    \item \additioItemTwo{}
+    \item \additioItemSeven{}
+    \item \additioItemFour{}
+\end{tightemize}
+\sectionsep{}
+\textbf{\additioTitleTwo}
+\begin{tightemize}
+    \item \additioItemThree{}
+\end{tightemize}
+\sectionsep{}
+\textbf{\additioTitleThree}
+\begin{tightemize}
+    \item \additioItemFive{}
+    \item \additioItemEight{}
+\end{tightemize}
+\sectionsep{}
+\textbf{\additioTitleFour}
+\begin{tightemize}
+    \item \additioItemSix{}
+    \item \additioItemNine{}
+    \item \additioItemTen{}
+    \item \additioItemEleven{}
 \end{tightemize}
 
-% (Exemple d'entrada laboral comentada, suprimida per centralitzar textos)
+% \runsubsection{\schoolName}
+% \descript{\schoolDesc}
+% \location{\schoolLocation}
+% \sectionsep{}
+% \begin{tightemize}
+% \item \schoolItemOne
+% \item \schoolItemTwo
+% \end{tightemize}
 
-\section{\secEducation}
-
-\runsubsection{\univUdG}
-
-\descript{\mastersTitle}
-\location{\mastersLocation}
-\sectionsep
-\begin{tightemize}
-\item \mastersItemOne
-\item \mastersItemTwo
-\end{tightemize}
-\sectionsep
-
-\runsubsection{\univUdG}
-
-\descript{\bachelorTitle}
-\location{\bachelorLocation}
-\sectionsep
-\begin{tightemize}
-\item \bachelorItemOne
-\item \bachelorItemTwo
-\end{tightemize}
-\sectionsep
-
-\runsubsection{\schoolName}
-\descript{\schoolDesc}
-\location{\schoolLocation}
-\sectionsep
-\begin{tightemize}
-\item \schoolItemOne
-\item \schoolItemTwo
-\end{tightemize}
-
-\section{\secInterests}
-\descript{\interestsList}
-\sectionsep
-\partTimeNote
+% \section{\secInterests}
+% \descript{\interestsList}
+% \sectionsep{}
+% \partTimeNote{}
 
 % \section{Projectes Destacats}
 
 % \runsubsection{\href{\projectExampleURL}{\projectExampleName}}
 % \location{GitHub: \projectExampleRepo}
 % \projectExampleDesc
-% \sectionsep
+% \sectionsep{}
 
 % \runsubsection{\href{\projectExampleURL}{\projectExampleName}}
 % \location{GitHub: \projectExampleRepo}
 % \projectExampleDesc
-% \sectionsep
+% \sectionsep{}
+
 
 % NOVA COLUMNA
-\columnbreak
+\columnbreak{}
 
 % COLUMNA DRETA
-\section{\secProfile}
-\profileText
+\section{\secEducation}
+
+\runsubsection{\univUdG}
+
+\descript{\mastersTitle}
+\location{\mastersLocation}
+\sectionsep{}
+\begin{tightemize}
+\item \mastersItemOne{}
+\item \mastersItemTwo{}
+\end{tightemize}
+\sectionsep{}
+
+\runsubsection{\univUdG}
+
+\descript{\bachelorTitle}
+\location{\bachelorLocation}
+\sectionsep{}
+\begin{tightemize}
+\item \bachelorItemOne{}
+\item \bachelorItemTwo{}
+\end{tightemize}
 
 \section{\secSkills}
 
-\runsubsection{\skillsLanguagesLabel}
+\runsubsection{\skillsProg}
 
-\skillsLanguagesList
+\descript{Python \textbullet{} R \textbullet{} SQL \textbullet{} Java \textbullet{} C/C++ \textbullet{} Bash}
+\sectionsep{}
 
-\sectionsep
+\runsubsection{\skillsDataDB}
 
-\runsubsection{\skillsToolsLabel}
+\descript{PostgreSQL \textbullet{} MySQL \textbullet{} MongoDB \textbullet{} SQL Server \textbullet{} Pandas \textbullet{} NumPy \textbullet{} Polars}
+\sectionsep{}
 
-\skillsToolsList
+\runsubsection{\skillsML}
+
+\descript{Scikit-learn \textbullet{} TensorFlow \textbullet{} PyTorch \textbullet{} XGBoost \textbullet{} Matplotlib \textbullet{} Seaborn}
+\sectionsep{}
+
+\runsubsection{\skillsMLOps}
+
+\descript{Docker \textbullet{} FastAPI \textbullet{} Flask \textbullet{} Git/GitHub \textbullet{} WSL}
+\sectionsep{}
+
+\runsubsection{\skillsTools}
+
+\descript{Jupyter \textbullet{} Anaconda \textbullet{} Postman/Bruno \textbullet{} Jira/YouTrack \textbullet{} Notion \textbullet{} Figma \textbullet{} Miro}
+\sectionsep{}
+
+\runsubsection{\skillsWeb}
+
+\descript{JavaScript \textbullet{} TypeScript \textbullet{} React \textbullet{} HTML \textbullet{} CSS}
+\sectionsep{}
+
+\runsubsection{\skillsOthers}
+
+\descript{LaTeX \textbullet{} Markdown \textbullet{} MATLAB}
+
+% \section{\secAwards}
+
+% \runsubsection{\awardTitle}
+
+% \descript{\awardDesc}
+% \location{\awardLocation}
+
+% \section{\secCerts}
+
+% \runsubsection{\certOneTitle}
+% \descript{\certOneDesc}
+% \location{\certOneLocation}
+% \sectionsep{}
+
+% \runsubsection{\certTwoTitle}
+% \descript{\certTwoDesc}
+% \location{\certTwoLocation}
+
+% \reactCourseNote
 
 \section{\secLanguages}
 
 \runsubsection{\langCatalan}
-\langCatalanLevel
-\sectionsep
+\langCatalanLevel{}
+\sectionsep{}
 
 \runsubsection{\langSpanish}
-\langSpanishLevel
-\sectionsep
+\langSpanishLevel{}
+\sectionsep{}
 
 \runsubsection{\langEnglish}
-\langEnglishLevel
-\sectionsep
+\langEnglishLevel{}
+\sectionsep{}
 
 \runsubsection{\langFrench}
-\langFrenchLevel
-
-\section{\secAwards}
-
-\runsubsection{\awardTitle}
-
-\descript{\awardDesc}
-\location{\awardLocation}
-
-\section{\secCerts}
-
-\runsubsection{\certOneTitle}
-\descript{\certOneDesc}
-\location{\certOneLocation}
-\sectionsep
-
-\runsubsection{\certTwoTitle}
-\descript{\certTwoDesc}
-\location{\certTwoLocation}
-
-% \reactCourseNote
+\langFrenchLevel{}
 
 \end{multicols}
 
