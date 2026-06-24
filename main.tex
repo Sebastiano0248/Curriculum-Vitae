@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 % Load babel with both Catalan and English; default language is Catalan here
 \usepackage[english,catalan]{babel}
-\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+\usepackage[left=0.75in,top=0.5in,right=0.75in,bottom=0.5in]{geometry}
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -29,6 +29,7 @@
 % Format de seccions (estil Deedy)
 \titleformat{\section}{\color{headings}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule]
 \titleformat{\subsection}{\color{subheadings}\raggedright\large}{}{0em}{}
+\titlespacing*{\section}{0pt}{4pt}{4pt}
 
 % Configurar peu de pÃ gina
 \pagestyle{fancy}
@@ -44,7 +45,7 @@
 \newcommand{\runsubsection}[1]{\color{subheadings}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase{#1}\normalfont}
 \newcommand{\descript}[1]{\color{subheadings}\raggedright\fontsize{11pt}{13pt}\selectfont{#1 \\}\normalfont}
 \newcommand{\location}[1]{\color{headings}\raggedright\fontsize{10pt}{12pt}\selectfont{#1\\}\normalfont}
-\newcommand{\sectionsep}{\vspace{6pt}}
+\newcommand{\sectionsep}{\vspace{3pt}}
 
 % Configurar hyperlinks
 \hypersetup{
@@ -69,9 +70,9 @@
 \begin{center}
     
     {\Huge \color{primary} \textbf{\nameFull}} \\
-    \vspace{3pt}
+    \vspace{2pt}
     {\Large \color{subheadings} \textsc{\degree}} \\
-    \vspace{6pt}
+    \vspace{3pt}
 
     \color{headings}
     % \faMapMarker \space \addressFull \\
@@ -140,7 +141,6 @@
 % \section{\secInterests}
 % \descript{\interestsList}
 % \sectionsep{}
-% \partTimeNote{}
 
 % \section{Projectes Destacats}
 
@@ -169,6 +169,7 @@
 \begin{tightemize}
 \item \mastersItemOne{}
 \item \mastersItemTwo{}
+\item \mastersItemThree{}
 \end{tightemize}
 \sectionsep{}
 
@@ -196,7 +197,7 @@
 
 \runsubsection{\skillsML}
 
-\descript{Scikit-learn \textbullet{} TensorFlow \textbullet{} PyTorch \textbullet{} XGBoost}
+\descript{Scikit-learn \textbullet{} TensorFlow \textbullet{} PyTorch \textbullet{} XGBoost \textbullet{} PyTorch Geometric}
 \sectionsep{}
 
 \runsubsection{\skillsDataViz}
@@ -206,17 +207,12 @@
 
 \runsubsection{\skillsMLOps}
 
-\descript{Docker \textbullet{} FastAPI \textbullet{} Flask \textbullet{} Git/GitHub \textbullet{} Elasticsearch}
+\descript{Docker \textbullet{} FastAPI \textbullet{} Flask \textbullet{} Git/GitHub \textbullet{} Elasticsearch \textbullet{} Hadoop \textbullet{} Jupyter \textbullet{} Jira/YouTrack \textbullet{} Miro}
 \sectionsep{}
 
-\runsubsection{\skillsTools}
+\runsubsection{\skillsAITools}
 
-\descript{Jupyter \textbullet{} Postman/Bruno \textbullet{} Jira/YouTrack \textbullet{} Miro}
-\sectionsep{}
-
-\runsubsection{\skillsWeb}
-
-\descript{JavaScript \textbullet{} TypeScript \textbullet{} React \textbullet{} HTML \textbullet{} CSS}
+\descript{Ollama \textbullet{} LM Studio \textbullet{} Flowise \textbullet{} n8n \textbullet{} Make}
 \sectionsep{}
 
 % \section{\secAwards}
