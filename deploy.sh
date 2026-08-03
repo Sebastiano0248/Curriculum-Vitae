@@ -21,6 +21,14 @@ source .env
 : "${NEXTCLOUD_TARGET_DIR:?NEXTCLOUD_TARGET_DIR not set in .env}"
 : "${NEXTCLOUD_SCAN_PATH:?NEXTCLOUD_SCAN_PATH not set in .env}"
 
+# Tee our own output to a log file (if configured) while still emitting it to
+# whichever stdout we were invoked with — a crontab-level `>> file` redirect
+# would instead swallow it before it reaches systemd-run's journal capture,
+# hiding the log from the cronpanel "run now" view.
+if [[ -n "${DEPLOY_LOG_FILE:-}" ]]; then
+    exec > >(tee -a "$DEPLOY_LOG_FILE") 2>&1
+fi
+
 log "git pull"
 git pull --ff-only
 
