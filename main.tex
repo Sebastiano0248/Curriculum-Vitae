@@ -60,11 +60,11 @@
 
 \begin{document}
 
-% Load language-specific strings (Catalan by default). To change language,
-% replace strings_catalan.tex with strings_english.tex or create a new file.
-\input{strings_catalan.tex}
-% To use English strings, comment the line above and uncomment the line below:
-% \input{strings_english.tex}
+% Load language-specific strings (Catalan by default). Override \stringsfile
+% before \input{main.tex}, e.g.:
+%   pdflatex "\def\stringsfile{strings_english}\input{main.tex}"
+\providecommand{\stringsfile}{strings_catalan}
+\input{\stringsfile}
 
 % CAPÃ‡ALERA (estil Deedy)
 \begin{center}

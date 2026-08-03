@@ -3,3 +3,7 @@
 !*.gitignore
 !*.tex
 !*.pdf
+!*.sh
+!.env.example
+
+.env
