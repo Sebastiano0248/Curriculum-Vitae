@@ -1,60 +1,57 @@
-% Strings (English) - placeholders
-\providecommand{\nameFull}{Joan Massallé Richart}
+% Strings (English)
+% Translatable text; contact details and technology lists live in common.tex.
+\selectlanguage{english}
 \providecommand{\degree}{Data Scientist}
-\providecommand{\phone}{+34~688~98~02~48}
-\providecommand{\email}{jmassalle@gmail.com}
-\providecommand{\linkedin}{linkedin.com/in/joan-massalle-richart}
 \providecommand{\updatedLabel}{Updated:}
-\providecommand{\linkedinURL}{https://www.linkedin.com/in/joan-massalle-richart}
+\providecommand{\cvDate}{\ifcase\month\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\ \number\day, \number\year}
 
 % Sections
-\providecommand{\secExperience}{Professional Experience}
-\providecommand{\secEducation}{Education}
-\providecommand{\secInterests}{Interests}
 \providecommand{\secProfile}{Professional Profile}
+\providecommand{\secExperience}{Professional Experience}
+\providecommand{\secProjects}{Projects}
+\providecommand{\secEducation}{Education}
 \providecommand{\secSkills}{Technical Skills}
 \providecommand{\secLanguages}{Languages}
+\providecommand{\secOtherStudies}{Other Studies}
+\providecommand{\secInterests}{Interests}
 \providecommand{\secAwards}{Awards}
 \providecommand{\secCerts}{Certifications}
 
-% Sample entries
-\providecommand{\additioAppTitle}{Seven Education}
-\providecommand{\additioAppRole}{Data Science}
-\providecommand{\additioAppLocation}{October 2024 – Present | Girona}
+% Profile
+\providecommand{\profileText}{Computer Engineer with a Master's in Data Science (UdG) and two years as a Data Scientist at Seven Education (AdditioApp), working on data engineering, database migrations and applied AI. Looking for machine learning and data roles, ideally in R\&D. Available to start immediately.}
 
-% Experience bullets (AdditioApp)
-\providecommand{\additioTitleOne}{Data Engineering \& Pipelines}
-\providecommand{\additioItemOne}{Integration and cleaning of data from multiple sources (XML, CSV, Excel, JSON, SQL dumps, and APIs).}
-\providecommand{\additioItemTwo}{Data migration using hexagonal Python architecture — handling CSV, XLSX, SQL, .bak and XML formats across PostgreSQL, MSSQL and MySQL databases.}
-\providecommand{\additioItemSeven}{Applied Levenshtein distance-based models to automate record matching; used Docker to emulate migration environments locally.}
-\providecommand{\additioItemFour}{Built ETL pipelines integrating external services: Odoo ERP, Amazon S3 and REST APIs.}
+% Experience (Seven Education / AdditioApp)
+\providecommand{\additioAppTitle}{Seven Education (AdditioApp)}
+\providecommand{\additioAppRole}{Data Scientist}
+\providecommand{\additioAppLocation}{Oct 2024 – Oct 2026 | Girona (hybrid)}
+\providecommand{\expItemOne}{Migrated 40+ schools from 10+ school-management platforms (Educamos, Clickedu, Alexia, Phidias\dots) using a hexagonal architecture in Python over CSV, XLSX, XML, SQL dumps and .bak files, with PostgreSQL, MSSQL and MySQL.}
+\providecommand{\expItemLLM}{LLM pipeline (Claude + GitHub Actions) for Dependabot alerts: the model proposes updates through constrained steps, a non-AI verifier rules out conflicts, and a PR is opened for human review.}
+\providecommand{\expItemTwo}{Automated record matching with Levenshtein distance-based models instead of manual cross-checking; reproducible migration environments with Docker.}
+\providecommand{\expItemThree}{ETL pipelines with Odoo ERP, Amazon S3 and REST APIs; complex SQL with temporal logic to validate data quality and integrity.}
+\providecommand{\expItemFour}{Local OCR and image enhancement with Real-ESRGAN, benchmarked against cloud services.}
+\providecommand{\expItemFive}{Logging and monitoring with Elasticsearch and Kibana; contributions to the internal data ingestion tool (React, Django).}
+\providecommand{\expItemSix}{Coordinated migration status and data repairs with school clients through the product team; Kanban with Jira.}
 
-\providecommand{\additioTitleTwo}{Databases \& SQL}
-\providecommand{\additioItemThree}{Development and optimization of complex SQL queries, including temporal logic and environment restoration using .BAK files.}
+% Projects
+\providecommand{\projTFMTitle}{Fairness in CNNs for Pneumonia Detection (Master's thesis)}
+\providecommand{\projTFMDesc}{Trained 13,000+ models to study how CNNs that detect pneumonia in chest X-rays encode gender under fairness constraints. High fairness penalties reduce diagnostic bias, but layer capacity, not penalty strength, is the main driver of internal gender encoding.}
+\providecommand{\projHackTitle}{1st place, UdG Master's in Data Science Hackathon 2026}
+\providecommand{\projHackDesc}{Housing-vulnerability map of Girona: XGBoost regression of fair rent with census data, a Mapbox dashboard and an API on AWS EC2 with CI/CD. Sponsored by Eurecat.}
+\providecommand{\projTFGTitle}{Anomalous: Neural Networks for Anomalous Diffusion (Bachelor's thesis)}
+\providecommand{\projTFGDesc}{Toolkit for characterising anomalous-diffusion trajectories in physical systems: a Python library published on PyPI (AnomalousLib), a desktop app (AnomalousApp) and experiments with networks that classify the trajectory type and estimate its parameters across 6 diffusion models (AnomalousLab).}
 
-\providecommand{\additioTitleThree}{Data Analysis \& Applied AI}
-\providecommand{\additioItemFive}{Set up Elasticsearch and Kibana for log management and operational monitoring.}
-\providecommand{\additioItemEight}{OCR and image enhancement through local pipelines (Real-ESRGAN), evaluating performance against cloud-based alternatives.}
-
-\providecommand{\additioTitleFour}{Software, Tooling \& Teamwork}
-\providecommand{\additioItemSix}{Occasional contribution to the frontend in React and initial backend support with Django for the internal data ingestion tool.}
-\providecommand{\additioItemNine}{Coordinated migration status and data repair communications with school clients through the product department.}
-\providecommand{\additioItemTen}{Git version control and Python dependency management; Kanban methodology with Jira, Slack and Teams.}
-\providecommand{\additioItemEleven}{Excel reports and continuous data exploration for quality, integrity and actionable insights.}
-
-
-% Universities and education entries
+% Education
 \providecommand{\univUdG}{University of Girona}
+\providecommand{\univUB}{University of Barcelona}
 \providecommand{\mastersTitle}{Master in Data Science}
 \providecommand{\mastersLocation}{2025 – 2026 | Girona}
-\providecommand{\mastersItemOne}{Winner of the 5th Master's Hackathon (2026) — Team Raposos. Official training in advanced data analysis, AI, ML and Big Data.}
-\providecommand{\mastersItemTwo}{Advanced ML: CNNs and Computer Vision, Graph Neural Networks (PyTorch Geometric), Time Series (ARIMA, LSTM/GRU) and LLMs (Transformers); Big Data with Hadoop, Spark, Flink and Kafka; local LLM tooling: Ollama, LM Studio, Flowise, n8n, Make.}
-\providecommand{\mastersItemThree}{Master's Thesis: analysis of how gender information is encoded in the internal representations of CNNs trained to detect pneumonia under fairness constraints; 13,000+ models trained.}
-
+\providecommand{\mastersItemOne}{Advanced ML: computer vision, GNNs, time series and LLMs; Big Data with Spark, Kafka and Hadoop.}
+\providecommand{\mastersItemTwo}{Responsible AI: fairness, bias mitigation and explainability.}
 \providecommand{\bachelorTitle}{Bachelor in Computer Engineering}
 \providecommand{\bachelorLocation}{2021 – 2025 | Girona}
-\providecommand{\bachelorItemOne}{Final project: Modelling and Prediction of Stochastic Trajectories in Physical Systems using Neural Networks.}
-\providecommand{\bachelorItemTwo}{Highlighted courses: Software Engineering, Artificial Intelligence, Databases, Statistics with R.}
+\providecommand{\bachelorItemOne}{Specialisation in Data Science and AI.}
+\providecommand{\physicsTitle}{Bachelor in Physics}
+\providecommand{\physicsLocation}{2026 – ongoing}
 
 \providecommand{\schoolName}{IES Ridaura}
 \providecommand{\schoolDesc}{Scientific Baccalaureate}
@@ -62,59 +59,33 @@
 \providecommand{\schoolItemOne}{University entrance exam score: 10.972/14}
 \providecommand{\schoolItemTwo}{Research project grade: 10/10}
 
-\providecommand{\partTimeNote}{I value the possibility of working part-time to combine work and studies.}
-
-\providecommand{\skillsLanguagesLabel}{Languages}
-
-\providecommand{\skillsToolsLabel}{Tools}
-
 % Skills subsection titles
-\providecommand{\skillsAITools}{AI \& LLM Tools}
-\providecommand{\skillsProg}{Programming Languages}
+\providecommand{\skillsProg}{Programming}
 \providecommand{\skillsDataDB}{Data \& Databases}
-\providecommand{\skillsML}{Machine Learning \& AI}
-\providecommand{\skillsDataViz}{Data Visualization}
-\providecommand{\skillsMLOps}{MLOps \& Backend}
-\providecommand{\skillsTools}{Tools}
-\providecommand{\skillsWeb}{Web Technologies (Secondary)}
+\providecommand{\skillsML}{ML \& AI}
+\providecommand{\skillsMLOps}{MLOps \& Cloud}
+\providecommand{\skillsAITools}{LLM Tools}
+\providecommand{\skillsDataViz}{Visualisation}
 
-\providecommand{\profileText}{Computer Engineering graduate with a completed Master's in Data Science at UdG, currently working at Seven Education as a Data Scientist. Strong interest in Machine Learning, AI and fairness-aware systems; I enjoy data exploration, building pipelines, and working with predictive models. Growth mindset and experience in agile team environments.}
-
-\providecommand{\interestsList}{Technology \textbullet{} Mathematics \textbullet{} Physics \textbullet{} Sports \textbullet{} Music}
-
+% Languages
 \providecommand{\langCatalan}{Catalan}
 \providecommand{\langCatalanLevel}{Native}
 \providecommand{\langSpanish}{Spanish}
 \providecommand{\langSpanishLevel}{Native}
 \providecommand{\langEnglish}{English}
-\providecommand{\langEnglishLevel}{Intermediate}
+\providecommand{\langEnglishLevel}{Intermediate (B2 in progress, UOC)}
 \providecommand{\langFrench}{French}
 \providecommand{\langFrenchLevel}{Intermediate}
 
-% Awards & certs placeholders
+% Interests, awards and certifications (sections commented out in main.tex)
+\providecommand{\interestsList}{Technology \textbullet{} Mathematics \textbullet{} Physics \textbullet{} Sports \textbullet{} Music}
 \providecommand{\awardTitle}{10th Research Works Forum of Baix Empordà}
 \providecommand{\awardDesc}{Photovoltaic solar panels. Solar tracking to improve performance}
 \providecommand{\awardLocation}{2021 | Girona}
-
 \providecommand{\certOneTitle}{Red Cross}
 \providecommand{\certOneDesc}{First aid course}
 \providecommand{\certOneLocation}{2019 | Santa Cristina d'Aro}
-
 \providecommand{\certTwoTitle}{Zona Jove de Santa Cristina d'Aro}
 \providecommand{\certTwoDesc}{Food handling course}
 \providecommand{\certTwoLocation}{2019 | Santa Cristina d'Aro}
-
-% Contact / examples (optional)
 \providecommand{\addressFull}{Santa Cristina d'Aro, Catalunya, 17246, Spain}
-\providecommand{\websiteURL}{http://www.elmeuteunom.com}
-\providecommand{\websiteLabel}{www.elmeuteunom.com}
-\providecommand{\githubURL}{https://github.com/elmeuteunom}
-\providecommand{\githubLabel}{github.com/elmeuteunom}
-
-% Example project
-\providecommand{\projectExampleName}{Project Name}
-\providecommand{\projectExampleRepo}{user/project}
-\providecommand{\projectExampleURL}{https://github.com/user/project}
-\providecommand{\projectExampleDesc}{Short description of the project, technologies used and results obtained.}
-
-\providecommand{\reactCourseNote}{React Course (WHEN I FINISH IT!!!!!!!!!)}

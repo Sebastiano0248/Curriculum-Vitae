@@ -35,35 +35,21 @@ git pull --ff-only
 BUILD_DIR="$(mktemp -d)"
 trap 'rm -rf "$BUILD_DIR"' EXIT
 
-declare -A LANGS=(
-    [CA]=strings_catalan
-    [EN]=strings_english
-    [ES]=strings_spanish
-)
-
-for code in "${!LANGS[@]}"; do
-    stringsfile="${LANGS[$code]}"
-    jobname="CV_Joan_Massalle_${code}"
-    log "compiling ${jobname} (${stringsfile})"
-    for pass in 1 2; do
-        pdflatex -interaction=nonstopmode -halt-on-error \
-            -jobname="$jobname" -output-directory="$BUILD_DIR" \
-            "\def\stringsfile{$stringsfile}\input{main.tex}" \
-            > "$BUILD_DIR/${jobname}.pass${pass}.log" 2>&1
-    done
-    if [[ ! -f "$BUILD_DIR/${jobname}.pdf" ]]; then
-        log "ERROR: ${jobname}.pdf not produced, see $BUILD_DIR/${jobname}.pass2.log"
-        exit 1
-    fi
-done
+# Same build as running `bash build.sh` locally: one subfolder per layout
+# ("Two columns" for main.tex, "One column" for main_ats.tex). Called through
+# bash so it works even if build.sh lost its executable bit on Windows.
+bash "$REPO_DIR/build.sh" "$BUILD_DIR"
 
 log "deploying PDFs to ${NEXTCLOUD_TARGET_DIR}"
-for code in "${!LANGS[@]}"; do
-    jobname="CV_Joan_Massalle_${code}"
-    sudo cp "$BUILD_DIR/${jobname}.pdf" "${NEXTCLOUD_TARGET_DIR}/${jobname}.pdf"
+for dir in "$BUILD_DIR"/*/; do
+    layout="$(basename "$dir")"
+    folder="${NEXTCLOUD_TARGET_DIR}/${layout}"
+    sudo mkdir -p "$folder"
+    sudo cp "$dir"CV_Joan_Massalle_*.pdf "$folder/"
+    sudo chown -R www-data:www-data "$folder"
+    sudo chmod 750 "$folder"
+    sudo chmod 640 "$folder"/CV_Joan_Massalle_*.pdf
 done
-sudo chown www-data:www-data "${NEXTCLOUD_TARGET_DIR}"/CV_Joan_Massalle_*.pdf
-sudo chmod 640 "${NEXTCLOUD_TARGET_DIR}"/CV_Joan_Massalle_*.pdf
 
 log "triggering focused Nextcloud files:scan"
 sudo -u www-data php /var/www/nextcloud/occ files:scan --path="${NEXTCLOUD_SCAN_PATH}"

@@ -1,61 +1,56 @@
-% Strings (Català) - generat automàticament
-% Cada text s'emmagatzema com una comanda LaTeX per facilitar el canvi d'idioma
-\providecommand{\nameFull}{Joan Massallé Richart}
+% Strings (Català)
+% Textos traduïbles; el contacte i les llistes de tecnologies són a common.tex.
 \providecommand{\degree}{Científic de Dades}
-\providecommand{\phone}{+34~688~98~02~48}
-\providecommand{\email}{jmassalle@gmail.com}
-\providecommand{\linkedin}{linkedin.com/in/joan-massalle-richart}
 \providecommand{\updatedLabel}{Actualitzat:}
-\providecommand{\linkedinURL}{https://www.linkedin.com/in/joan-massalle-richart}
+\providecommand{\cvDate}{\number\day\ \ifcase\month\or de gener\or de febrer\or de març\or d'abril\or de maig\or de juny\or de juliol\or d'agost\or de setembre\or d'octubre\or de novembre\or de desembre\fi\ de \number\year}
 
 % Seccions
-\providecommand{\secExperience}{Experiència Professional}
-\providecommand{\secEducation}{Formació}
-\providecommand{\secInterests}{Interessos}
 \providecommand{\secProfile}{Perfil Professional}
+\providecommand{\secExperience}{Experiència Professional}
+\providecommand{\secProjects}{Projectes}
+\providecommand{\secEducation}{Formació}
 \providecommand{\secSkills}{Habilitats Tècniques}
 \providecommand{\secLanguages}{Idiomes}
+\providecommand{\secOtherStudies}{Altres estudis}
+\providecommand{\secInterests}{Interessos}
 \providecommand{\secAwards}{Premis}
 \providecommand{\secCerts}{Certificacions}
 
-% Company / rol / ubicació / dates (exemples)
-\providecommand{\additioAppTitle}{Seven Education}
-\providecommand{\additioAppRole}{Data Science}
-\providecommand{\additioAppLocation}{Octubre 2024 – Actualitat | Girona}
+% Perfil
+\providecommand{\profileText}{Enginyer informàtic i Màster en Ciència de Dades (UdG) amb dos anys com a Data Scientist a Seven Education (AdditioApp): enginyeria de dades, migracions de bases de dades i IA aplicada. Busco rols de machine learning i dades, idealment en R+D. Disponible per incorporar-me immediatament.}
 
-% Experience bullets (AdditioApp)
-\providecommand{\additioTitleOne}{Enginyeria de Dades i Pipelines}
-\providecommand{\additioItemOne}{Integració i neteja de dades provinents de múltiples fonts (XML, CSV, Excel, JSON, volcades SQL i APIs).}
-\providecommand{\additioItemTwo}{Migració de dades amb arquitectura hexagonal en Python — formats CSV, XLSX, SQL, .bak i XML en bases de dades PostgreSQL, MSSQL i MySQL.}
-\providecommand{\additioItemSeven}{Models estadístics basats en la distància de Levenshtein per automatitzar l'emparellament de registres; Docker per emular entorns de migració en local.}
-\providecommand{\additioItemFour}{Pipelines ETL integrant serveis externs: Odoo ERP, Amazon S3 i APIs REST.}
+% Experiència (Seven Education / AdditioApp)
+\providecommand{\additioAppTitle}{Seven Education (AdditioApp)}
+\providecommand{\additioAppRole}{Data Scientist}
+\providecommand{\additioAppLocation}{Oct. 2024 – Oct. 2026 | Girona (híbrid)}
+\providecommand{\expItemOne}{Migració de més de 40 centres educatius des de més de 10 plataformes de gestió escolar (Educamos, Clickedu, Alexia, Phidias\dots): arquitectura hexagonal en Python sobre CSV, XLSX, XML, bolcats SQL i .bak, amb PostgreSQL, MSSQL i MySQL.}
+\providecommand{\expItemLLM}{Pipeline LLM (Claude + GitHub Actions) per a les alertes de Dependabot: el model proposa actualitzacions en passos acotats, un verificador extern a la IA descarta conflictes i s'obre una PR per a revisió humana.}
+\providecommand{\expItemTwo}{Emparellament automàtic de registres amb models basats en la distància de Levenshtein, en lloc de creuar-los a mà; entorns de migració reproduïbles amb Docker.}
+\providecommand{\expItemThree}{Pipelines ETL amb Odoo ERP, Amazon S3 i APIs REST; SQL complex amb lògica temporal per validar la qualitat i la integritat de les dades.}
+\providecommand{\expItemFour}{OCR i millora d'imatge en local amb Real-ESRGAN, avaluats davant de serveis al núvol.}
+\providecommand{\expItemFive}{Logs i monitorització amb Elasticsearch i Kibana; contribucions a l'eina interna d'ingesta de dades (React, Django).}
+\providecommand{\expItemSix}{Coordinació amb les escoles clients, a través de producte, de l'estat de les migracions i la reparació de dades; Kanban amb Jira.}
 
-\providecommand{\additioTitleTwo}{Bases de Dades i SQL}
-\providecommand{\additioItemThree}{Desenvolupament i optimització de consultes SQL complexes, incloent lògica temporal i restauració d'entorns mitjançant fitxers .BAK.}
+% Projectes
+\providecommand{\projTFMTitle}{Fairness en CNNs per detectar pneumònia (TFM)}
+\providecommand{\projTFMDesc}{Més de 13.000 models entrenats per estudiar com codifiquen el gènere les CNNs que detecten pneumònia en radiografies sota restriccions de fairness. Les penalitzacions altes redueixen el biaix diagnòstic, però el que més determina la codificació interna és la capacitat de la capa.}
+\providecommand{\projHackTitle}{1r premi, Hackathon del Màster en Ciència de Dades (UdG, 2026)}
+\providecommand{\projHackDesc}{Mapa de vulnerabilitat residencial a Girona: regressió XGBoost del lloguer just amb dades censals, dashboard amb Mapbox i API a AWS EC2 amb CI/CD. Patrocinat per Eurecat.}
+\providecommand{\projTFGTitle}{Anomalous: xarxes neuronals per a difusió anòmala (TFG)}
+\providecommand{\projTFGDesc}{Ecosistema per caracteritzar trajectòries de difusió anòmala en sistemes físics: llibreria de Python publicada a PyPI (AnomalousLib), aplicació d'escriptori (AnomalousApp) i experiments amb xarxes que classifiquen el tipus de trajectòria i n'estimen els paràmetres en 6 models de difusió (AnomalousLab).}
 
-\providecommand{\additioTitleThree}{Anàlisi de Dades i IA Aplicada}
-\providecommand{\additioItemFive}{Configuració d'Elasticsearch i Kibana per a gestió de logs i monitorització operacional.}
-\providecommand{\additioItemEight}{OCR i millora d'imatges mitjançant pipelines locals (Real-ESRGAN), avaluant el rendiment en comparació amb alternatives basades en el núvol.}
-
-\providecommand{\additioTitleFour}{Programari, Eines i Treball en Equip}
-\providecommand{\additioItemSix}{Contribució ocasional al frontend en React i suport inicial al backend amb Django per a l'eina interna d'ingestió de dades.}
-\providecommand{\additioItemNine}{Coordinació de l'estat de les migracions i la reparació de dades amb clients escolars a través del departament de producte.}
-\providecommand{\additioItemTen}{Control de versions amb Git i gestió de dependències Python; metodologia Kanban amb Jira, Slack i Teams.}
-\providecommand{\additioItemEleven}{Informes Excel i exploració contínua de dades per a qualitat, integritat i insights accionables.}
-
-
-% Universitats i centres
+% Formació
 \providecommand{\univUdG}{Universitat de Girona}
+\providecommand{\univUB}{Universitat de Barcelona}
 \providecommand{\mastersTitle}{Màster en Ciència de Dades}
 \providecommand{\mastersLocation}{2025 – 2026 | Girona}
-\providecommand{\mastersItemOne}{Guanyador de la 5a Hackathon del Màster (2026) — Equip Raposos. Formació oficial en anàlisi avançada de dades, IA, ML i Big Data.}
-\providecommand{\mastersItemTwo}{ML avançat: CNNs i Visió per Computador, Graph Neural Networks (PyTorch Geometric), Sèries Temporals (ARIMA, LSTM/GRU) i LLMs (Transformers); Big Data amb Hadoop, Spark, Flink i Kafka; eines LLM locals: Ollama, LM Studio, Flowise, n8n, Make.}
-\providecommand{\mastersItemThree}{Treball Final de Màster: anàlisi de com la informació de gènere es codifica en representacions internes de CNNs entrenades per detectar pneumònia sota restriccions de fairness; més de 13.000 models entrenats.}
-
+\providecommand{\mastersItemOne}{ML avançat: visió per computador, GNNs, sèries temporals i LLMs; Big Data amb Spark, Kafka i Hadoop.}
+\providecommand{\mastersItemTwo}{IA responsable: fairness, mitigació de biaixos i explicabilitat.}
 \providecommand{\bachelorTitle}{Grau en Enginyeria Informàtica}
 \providecommand{\bachelorLocation}{2021 – 2025 | Girona}
-\providecommand{\bachelorItemOne}{Projecte final: Modelització i Predicció de Trajectòries Estocàstiques en Sistemes Físics amb Xarxes Neuronals.}
-\providecommand{\bachelorItemTwo}{Assignatures destacades: Enginyeria del Software, Intel·ligència Artificial, Bases de Dades, Estadística amb R.}
+\providecommand{\bachelorItemOne}{Especialització en Ciència de Dades i IA.}
+\providecommand{\physicsTitle}{Grau en Física}
+\providecommand{\physicsLocation}{2026 – en curs}
 
 \providecommand{\schoolName}{IES Ridaura}
 \providecommand{\schoolDesc}{Batxillerat Científic}
@@ -63,65 +58,33 @@
 \providecommand{\schoolItemOne}{Nota de Selectivitat: 10.972/14}
 \providecommand{\schoolItemTwo}{Nota del treball de recerca: 10/10}
 
-% Notes i paràgrafs addicionals
-\providecommand{\partTimeNote}{Valoro la possibilitat de treballar a mitja jornada per poder compaginar feina i estudis.}
+% Títols de les habilitats
+\providecommand{\skillsProg}{Programació}
+\providecommand{\skillsDataDB}{Dades i BBDD}
+\providecommand{\skillsML}{ML i IA}
+\providecommand{\skillsMLOps}{MLOps i núvol}
+\providecommand{\skillsAITools}{Eines LLM}
+\providecommand{\skillsDataViz}{Visualització}
 
-% Labels per a seccions d'habilitats
-\providecommand{\skillsLanguagesLabel}{Llenguatges}
-
-\providecommand{\skillsToolsLabel}{Eines}
-
-% Labels per a subtítols dins d'habilitats
-\providecommand{\skillsAITools}{Eines IA \& LLM}
-\providecommand{\skillsProg}{Llenguatges de Programació}
-\providecommand{\skillsDataDB}{Dades \& Bases de Dades}
-\providecommand{\skillsML}{Aprenentatge Automàtic i IA}
-\providecommand{\skillsMLOps}{MLOps i Backend}
-\providecommand{\skillsTools}{Eines}
-\providecommand{\skillsDataViz}{Visualitzaci\'o de Dades}
-\providecommand{\skillsWeb}{Tecnologies Web (Secundàries)}
-
-% Perfil i paràgrafs
-\providecommand{\profileText}{Enginyer informàtic amb un Màster en Ciència de Dades per la UdG, treballant a Seven Education com a Data Scientist. Fort interès en Machine Learning, IA i sistemes de fairness; gaudeixo de l'anàlisi de dades, la construcció de pipelines i el treball amb models predictius. Mentalitat de creixement i experiència en entorns àgils d'equip.}
-
-% Habilitats i llistes breus
-\providecommand{\interestsList}{Tecnologia \textbullet{} Matemàtica \textbullet{} Física \textbullet{} Esport \textbullet{} Música}
-
-% Idioma levels
+% Idiomes
 \providecommand{\langCatalan}{Català}
 \providecommand{\langCatalanLevel}{Nadiu}
 \providecommand{\langSpanish}{Castellà}
 \providecommand{\langSpanishLevel}{Nadiu}
 \providecommand{\langEnglish}{Anglès}
-\providecommand{\langEnglishLevel}{Intermedi}
+\providecommand{\langEnglishLevel}{Intermedi (B2 en curs, UOC)}
 \providecommand{\langFrench}{Francès}
 \providecommand{\langFrenchLevel}{Intermedi}
 
-% Premis i certificacions (exemples)
+% Interessos, premis i certificacions (seccions comentades a main.tex)
+\providecommand{\interestsList}{Tecnologia \textbullet{} Matemàtica \textbullet{} Física \textbullet{} Esport \textbullet{} Música}
 \providecommand{\awardTitle}{10è Fòrum de Treballs de Recerca\\del Baix Empordà}
 \providecommand{\awardDesc}{Plaques solars fotovoltaiques. Seguiment solar per millorar-ne el rendiment}
 \providecommand{\awardLocation}{2021 | Girona}
-
 \providecommand{\certOneTitle}{Creu Roja}
 \providecommand{\certOneDesc}{Curs de primers auxilis}
 \providecommand{\certOneLocation}{2019 | Santa Cristina d'Aro}
-
 \providecommand{\certTwoTitle}{Zona Jove de Santa Cristina d'Aro}
 \providecommand{\certTwoDesc}{Curs de manipulació d'aliments}
 \providecommand{\certTwoLocation}{2019 | Santa Cristina d'Aro}
-
-% Contact / examples (opcionals)
 \providecommand{\addressFull}{Santa Cristina d'Aro, Catalunya, 17246, Espanya}
-\providecommand{\websiteURL}{http://www.elmeuteunom.com}
-\providecommand{\websiteLabel}{www.elmeuteunom.com}
-\providecommand{\githubURL}{https://github.com/elmeuteunom}
-\providecommand{\githubLabel}{github.com/elmeuteunom}
-
-% Exemple de projecte
-\providecommand{\projectExampleName}{Nom del Projecte}
-\providecommand{\projectExampleRepo}{usuari/projecte}
-\providecommand{\projectExampleURL}{https://github.com/usuari/projecte}
-\providecommand{\projectExampleDesc}{Breu descripció del projecte, tecnologies utilitzades i resultats obtinguts.}
-
-% Nota de curs React (exemple)
-\providecommand{\reactCourseNote}{React Course (QUAN L'ACABI!!!!!!!!!)}

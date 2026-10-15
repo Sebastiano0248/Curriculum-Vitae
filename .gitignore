@@ -8,3 +8,6 @@
 !README.md
 
 .env
+
+# PDFs generated locally by build.sh, to review before pushing
+output/
