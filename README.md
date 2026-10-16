@@ -33,8 +33,10 @@ the same folders that end up in Nextcloud:
 
 ```
 output/
-├── Two columns/   CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf   (main.tex)
-└── One column/    CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf   (main_ats.tex)
+├── Fancy CV/                      (main.tex)
+│   ├── With phone/      CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf
+│   └── Without phone/   CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf
+└── Scannable CV/        CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf   (main_ats.tex)
 ```
 
 `deploy.sh` runs this same script, so what you review locally is what gets
@@ -57,12 +59,15 @@ Run `pdflatex` twice per language for correct cross-references/outlines.
 ## Automated build & deploy
 
 `deploy.sh` pulls the latest changes, runs `build.sh` and copies the resulting
-PDFs into a Nextcloud folder, one subfolder per layout:
+PDFs into a dedicated Nextcloud folder (created if missing), with the same
+folder tree as `output/`:
 
 ```
-<NEXTCLOUD_TARGET_DIR>/
-├── Two columns/   CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf   (main.tex)
-└── One column/    CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf   (main_ats.tex)
+<NEXTCLOUD_TARGET_DIR>/            e.g. Documents/Feina/Currículum Vitae
+├── Fancy CV/                      (main.tex)
+│   ├── With phone/      CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf
+│   └── Without phone/   CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf
+└── Scannable CV/        CV_Joan_Massalle_CA.pdf, _EN.pdf, _ES.pdf   (main_ats.tex)
 ```
 
 It then triggers a focused `occ files:scan` so the new files show up

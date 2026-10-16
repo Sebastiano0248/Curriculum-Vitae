@@ -92,7 +92,8 @@
 
     \color{headings}
     % \faMapMarker \space \addressFull \\
-    \faPhone{} \space \phone{} \space \textbullet{} \space
+    % build.sh defineix \nophone per generar la versió sense telèfon
+    \ifdefined\nophone\else \faPhone{} \space \phone{} \space \textbullet{} \space \fi
     \faEnvelope{} \space \href{mailto:\email}{\email} \space \textbullet{} \space
     \faLinkedin{} \space \href{\linkedinURL}{\linkedin} \\
     \vspace{2pt}

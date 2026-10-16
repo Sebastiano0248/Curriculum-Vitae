@@ -20,6 +20,9 @@ source .env
 
 : "${NEXTCLOUD_TARGET_DIR:?NEXTCLOUD_TARGET_DIR not set in .env}"
 : "${NEXTCLOUD_SCAN_PATH:?NEXTCLOUD_SCAN_PATH not set in .env}"
+# How to invoke occ (word-split on purpose). Defaults to a native install;
+# override in .env for e.g. a Dockerized Nextcloud.
+NEXTCLOUD_OCC="${NEXTCLOUD_OCC:-sudo -u www-data php /var/www/nextcloud/occ}"
 
 # Tee our own output to a log file (if configured) while still emitting it to
 # whichever stdout we were invoked with — a crontab-level `>> file` redirect
@@ -35,23 +38,25 @@ git pull --ff-only
 BUILD_DIR="$(mktemp -d)"
 trap 'rm -rf "$BUILD_DIR"' EXIT
 
-# Same build as running `bash build.sh` locally: one subfolder per layout
-# ("Two columns" for main.tex, "One column" for main_ats.tex). Called through
+# Same build as running `bash build.sh` locally: "Fancy CV/With phone",
+# "Fancy CV/Without phone" (main.tex) and "Scannable CV" (main_ats.tex). Called through
 # bash so it works even if build.sh lost its executable bit on Windows.
 bash "$REPO_DIR/build.sh" "$BUILD_DIR"
 
 log "deploying PDFs to ${NEXTCLOUD_TARGET_DIR}"
-for dir in "$BUILD_DIR"/*/; do
-    layout="$(basename "$dir")"
-    folder="${NEXTCLOUD_TARGET_DIR}/${layout}"
-    sudo mkdir -p "$folder"
-    sudo cp "$dir"CV_Joan_Massalle_*.pdf "$folder/"
-    sudo chown -R www-data:www-data "$folder"
-    sudo chmod 750 "$folder"
-    sudo chmod 640 "$folder"/CV_Joan_Massalle_*.pdf
-done
+# The target is a folder of its own (e.g. "Currículum Vitae") that may not
+# exist yet: it must belong to www-data, not root, or Nextcloud can't manage it.
+sudo mkdir -p "$NEXTCLOUD_TARGET_DIR"
+sudo chown www-data:www-data "$NEXTCLOUD_TARGET_DIR"
+sudo chmod 750 "$NEXTCLOUD_TARGET_DIR"
+# Copy the whole folder tree as built (folders may be nested, e.g. "Fancy CV/With phone").
+sudo cp -r "$BUILD_DIR"/. "$NEXTCLOUD_TARGET_DIR/"
+sudo chown -R www-data:www-data "$NEXTCLOUD_TARGET_DIR"
+sudo find "$NEXTCLOUD_TARGET_DIR" -type d -exec chmod 750 {} +
+sudo find "$NEXTCLOUD_TARGET_DIR" -type f -name 'CV_Joan_Massalle_*.pdf' -exec chmod 640 {} +
 
 log "triggering focused Nextcloud files:scan"
-sudo -u www-data php /var/www/nextcloud/occ files:scan --path="${NEXTCLOUD_SCAN_PATH}"
+# shellcheck disable=SC2086
+$NEXTCLOUD_OCC files:scan --path="${NEXTCLOUD_SCAN_PATH}"
 
 log "done"

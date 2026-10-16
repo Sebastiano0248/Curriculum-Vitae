@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Compiles the CV in every language and layout into an output folder:
 #
-#   <output>/Two columns/CV_Joan_Massalle_{CA,EN,ES}.pdf   (main.tex)
-#   <output>/One column/CV_Joan_Massalle_{CA,EN,ES}.pdf    (main_ats.tex)
+#   <output>/Fancy CV/With phone/CV_Joan_Massalle_{CA,EN,ES}.pdf      (main.tex)
+#   <output>/Fancy CV/Without phone/CV_Joan_Massalle_{CA,EN,ES}.pdf   (main.tex)
+#   <output>/Scannable CV/CV_Joan_Massalle_{CA,EN,ES}.pdf             (main_ats.tex)
 #
 # Usage:  bash build.sh [output_dir]
 # Default output_dir is output/, which git ignores: run it locally to review the
@@ -31,25 +32,28 @@ declare -A LANGS=(
     [ES]=strings_spanish
 )
 
-# Template -> output folder. Inside each folder the PDFs keep the same clean
-# name (CV_Joan_Massalle_CA.pdf...), since that is the name a recruiter sees.
-declare -A LAYOUTS=(
-    [main]="Two columns"
-    [main_ats]="One column"
+# Variant -> "template|extra TeX definitions|output folder". Inside each folder
+# the PDFs keep the same clean name (CV_Joan_Massalle_CA.pdf...), since that is
+# the name a recruiter sees. \nophone hides the phone number in main.tex.
+declare -A VARIANTS=(
+    [fancy_phone]="main||Fancy CV/With phone"
+    [fancy_nophone]="main|\def\nophone{}|Fancy CV/Without phone"
+    [scannable]="main_ats||Scannable CV"
 )
 
 mkdir -p "$BUILD_DIR"
 
 for code in "${!LANGS[@]}"; do
     stringsfile="${LANGS[$code]}"
-    for template in "${!LAYOUTS[@]}"; do
+    for variant in "${!VARIANTS[@]}"; do
+        IFS='|' read -r template defs _ <<< "${VARIANTS[$variant]}"
         # Unique, space-free name while compiling; renamed when copied.
-        jobname="${template}_${code}"
+        jobname="${variant}_${code}"
         log "compiling ${jobname} (${stringsfile})"
         for pass in 1 2; do
             if ! pdflatex -interaction=nonstopmode -halt-on-error \
                 -jobname="$jobname" -output-directory="$BUILD_DIR" \
-                "\def\stringsfile{$stringsfile}\input{${template}.tex}" \
+                "${defs}\def\stringsfile{$stringsfile}\input{${template}.tex}" \
                 > "$BUILD_DIR/${jobname}.pass${pass}.log" 2>&1; then
                 log "ERROR: ${jobname} failed, see $BUILD_DIR/${jobname}.log"
                 grep -A5 '^!' "$BUILD_DIR/${jobname}.log" >&2 || true
@@ -59,11 +63,12 @@ for code in "${!LANGS[@]}"; do
     done
 done
 
-for template in "${!LAYOUTS[@]}"; do
-    folder="${OUT_DIR}/${LAYOUTS[$template]}"
+for variant in "${!VARIANTS[@]}"; do
+    IFS='|' read -r _ _ subdir <<< "${VARIANTS[$variant]}"
+    folder="${OUT_DIR}/${subdir}"
     mkdir -p "$folder"
     for code in "${!LANGS[@]}"; do
-        cp "$BUILD_DIR/${template}_${code}.pdf" "$folder/CV_Joan_Massalle_${code}.pdf"
+        cp "$BUILD_DIR/${variant}_${code}.pdf" "$folder/CV_Joan_Massalle_${code}.pdf"
     done
 done
 
